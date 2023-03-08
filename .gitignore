@@ -1,0 +1,3 @@
+bin
+plot/*.dat
+report/*.pdf
