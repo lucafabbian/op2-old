@@ -179,9 +179,12 @@ public:
 		
 
 		fclose(fptr);
-
-		if(show) system("gnuplot ./plot/command");
-	
+		#ifdef IPYCPP
+			system("gnuplot ./plot/command_jpy_cpp");
+			printf("$$$ipycppr_image$$$plot/plot.png\n");
+		#else
+			if(show) system("gnuplot ./plot/command");
+		#endif
 	}
 
 

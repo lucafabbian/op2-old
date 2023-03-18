@@ -1,3 +1,5 @@
 bin
 plot/*.dat
 report/*.pdf
+
+plot.png
