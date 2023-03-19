@@ -1,5 +1,4 @@
 #define IPYCPP
-#define IPYCPP_MAIN
 // $$ipycpp_file: src/main.cpp
 // $$ipycpp_build: TSP_FILE="./data/test2.tsp" mkdir -p bin && g++ -o3 -o bin/main src/main.cpp -fopenmp
 // $$ipycpp_run: bin/main
@@ -101,6 +100,42 @@ void allPossibleStartsParallel(const TSP &tsp){
 
 }
 
+auto html = R""""(
+
+<div class="widgetcontainer">
+	<div class="widget" v-scope="{ count: 0 }">
+		<button @click="count--">-</button>
+		{{ count }}
+		<button @click="count++">+</button>
+	</div>
+
+	<script>
+	if(!window.INSTALL_PETITE_VUE){
+		window.INSTALL_PETITE_VUE = true;
+		var script = document.createElement('script');
+		script.src = 'https://unpkg.com/petite-vue';
+		document.head.appendChild(script);
+	}
+
+	PetiteVue.createApp().mount(document.currentScript.previousElementSibling)
+	</script>
+</div>
+)"""";
+
+#ifdef IPYCPP_MAIN
+#define IPYCPP_MAIN_METHOD
+int main(){
+	printf("$$$ipycppr_html_start$$$\n%s\n$$$ipycppr_html_end$$$\n", html);
+}
+#endif
+#define IPYCPP_MAIN
+#ifdef IPYCPP_MAIN
+#define IPYCPP_MAIN_METHOD
+int main(){
+	printf("$$$ipycppr_html_start$$$\n%s\n$$$ipycppr_html_end$$$\n", html);
+	printf("$$$ipycppr_html_start$$$\n%s\n$$$ipycppr_html_end$$$\n", html);
+}
+#endif
 #undef IPYCPP_MAIN
 
 #ifndef IPYCPP_MAIN_METHOD

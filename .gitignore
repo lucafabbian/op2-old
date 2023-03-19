@@ -1,5 +1,5 @@
-bin
+/bin
 plot/*.dat
-report/*.pdf
+/report
 
 plot.png
