@@ -14,8 +14,6 @@ struct Point {
 	int y;
 };
 
-
-
 class TSP {
 public:
 	int dim;
@@ -90,9 +88,7 @@ public:
 	}
 
 
-	TSP(TSP& t){
-		printf("errorrrrr");
-	}
+	TSP(TSP& t){ printf("error: this should not be called\n");	}
 
 
 };
@@ -114,7 +110,6 @@ public:
 
 	~TSPSolution(){
 		free(sequence);
-		printf("Freeing memory\n");
 	}
 
 
@@ -181,7 +176,7 @@ public:
 		fclose(fptr);
 		#ifdef IPYCPP
 			system("gnuplot ./plot/command_jpy_cpp");
-			printf("$$$ipycppr_image$$$plot/plot.png\n");
+			printf("$$$ipycppr_file$$$plot/plot.png\n");
 		#else
 			if(show) system("gnuplot ./plot/command");
 		#endif

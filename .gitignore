@@ -3,3 +3,5 @@ plot/*.dat
 /report
 
 plot.png
+result.png
+perfcsv.csv
