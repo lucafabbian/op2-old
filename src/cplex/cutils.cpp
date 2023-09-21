@@ -134,11 +134,10 @@ void cplexExtractSolution(TSPSolution &sol, CPXENVptr env, CPXLPptr lp){
 
 
 int prepare_SEC(const int &dim, int tour, int *comp, char *sense, int *indexes, double *values, double *rhs) {
-    int nnz = 0; // Number of variables to add in the constraint
-    int num_nodes = 0; // We need to know the number of nodes due the vincle |S| - 1
-    *sense = 'L'; // Preparing here sense in order that the caller of this function does not care about the underling constraints
+    int nnz = 0;
+    int num_nodes = 0;
+    *sense = 'L';
 
-    // Could it be faster if we use the successors array?? Nope.
     for (int i = 0; i < dim; i++) {
         if (comp[i] != tour) continue;
         num_nodes++;
