@@ -1,3 +1,78 @@
+/*
+
+
+void nearestPlusTwoOpt(TSPSolution *sol, const time_t timeLimit, const int startingPoint = 0){
+  nearest(sol, timeLimit, startingPoint);
+  twoOpt(sol);
+}
+
+int main () {
+  TSP tsp("./data/pr1002.tsp");
+  time_t timeLimit = time(NULL) + (2 *60 );
+  printResult(solveMultiThread(nearestPlusTwoOpt, tsp, timeLimit, {0, tsp.dim, 1}));
+}
+
+
+
+
+void repeatGrasp (TSPSolution *sol, const time_t timeLimit, const int startingPoint = 0){
+  nearestWithGrasp(sol, timeLimit, startingPoint, 50); // 100 is 10.0%
+  twoOpt(sol);
+}
+
+int main(){
+
+  srand(1234543454);
+  TSP tsp("./data/pr1002.tsp");
+  time_t timeLimit = time(NULL) + ( 5 * 60 );
+  printResult(solveMultiThreadEndless(repeatGrasp, tsp, timeLimit, {0, tsp.dim, 1}));
+}
+
+
+
+int main() {
+  TSP tsp("./data/pr1002.tsp");
+  TSPSolution sol(&tsp);
+
+  time_t timeLimit = time(NULL) + (2 );
+  solveGreed(&sol, timeLimit);
+  twoOpt(&sol);
+
+  timeLimit = time(NULL) + (20 * 60 );
+  genetic(&sol, timeLimit);
+
+  //sol.plot();
+  //printf("%d %s\n", sol.cost, sol.isValid()? "VALID" : "INVALID");
+}
+
+
+
+
+void extraMileageWithMaximum(TSPSolution *sol, const time_t timeLimit, const int startingPoint = 0){
+  extraMileage(sol, timeLimit, startingPoint, -1);
+}
+
+void extraMileageWithMaximumAndTwoOpt(TSPSolution *sol, const time_t timeLimit, const int startingPoint = 0){
+  extraMileage(sol, timeLimit, startingPoint, -1);
+  twoOpt(sol);
+}
+
+int main(){
+  TSP tsp("./data/pr136.tsp");
+  time_t timeLimit = time(NULL) + (0.5 );
+  printResult(solveSingleThread(extraMileageWithMaximum, tsp, timeLimit, {0, tsp.dim, 1}));
+  printResult(solveSingleThread(extraMileageWithMaximumAndTwoOpt, tsp, timeLimit, {0, tsp.dim, 1}));
+}
+
+
+
+
+
+
+
+*/
+
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -15,7 +90,7 @@
 void allPossibleStartsSingleThread(const TSP &tsp){
 
 	// start clock
-	clock_t start = clock();
+	time_t start = time(NULL);
 
 	// try every possible starting point
 	TSPSolution *minSol = new TSPSolution(&tsp);
@@ -33,11 +108,11 @@ void allPossibleStartsSingleThread(const TSP &tsp){
 			minIndex = i;
 		}
 	}
-	
+
 
 	// stop timer
-	clock_t end = clock();
-	double time = (double)(end - start) / CLOCKS_PER_SEC;
+	time_t end = time(NULL);
+	int time = end- start;;
 
 	// print solution cost
 	printf("starting point = %d, cost = %d\n", minIndex, minSol->cost);
@@ -53,7 +128,7 @@ void allPossibleStartsParallel(const TSP &tsp){
 	std::mutex mtx;
 
 	// start clock
-	clock_t start = clock();
+	time_t start = time(NULL);
 
 	// try every possible starting point
 	TSPSolution *minSol = new TSPSolution(&tsp);
@@ -82,8 +157,8 @@ void allPossibleStartsParallel(const TSP &tsp){
 
 
 	// stop timer
-	clock_t end = clock();
-	double time = (double)(end - start) / CLOCKS_PER_SEC;
+	time_t end = time(NULL);
+	int time = end- start;;
 
 	// print solution cost
 	printf("starting point = %d, cost = %d\n", minIndex, minSol->cost);

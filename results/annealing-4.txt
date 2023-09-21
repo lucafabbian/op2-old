@@ -1,0 +1,3 @@
+Running annealing ./data/bier127.tsp, time=1695311120
+Solution cost: 125039
+Solution plot: gnuplot ./plot/gnu/command90474BA6-DF783ABA-8F9F4C91-B650-EA8A

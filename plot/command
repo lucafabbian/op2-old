@@ -1,3 +1,0 @@
-set terminal qt size 500,500
-plot 'plot/points.dat' with points, 'plot/solution.dat' with linespoint
-pause -1

@@ -1,0 +1,3 @@
+Running annealing ./data/kroA150.tsp, time=1695312320
+Solution cost: 28967
+Solution plot: gnuplot ./plot/gnu/command1D40F3C0-9158A6FA-4DBA4F52-9FA3-F88F

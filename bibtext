@@ -1,0 +1,46 @@
+@book{holland1992adaptation,
+  title={Adaptation in natural and artificial systems: an introductory analysis with applications to biology, control, and artificial intelligence},
+  author={Holland, John H},
+  year={1992},
+  publisher={MIT press}
+}
+
+
+@book{biggs1986graph,
+  title={Graph Theory, 1736-1936},
+  author={Biggs, Norman and Lloyd, E Keith and Wilson, Robin J},
+  year={1986},
+  publisher={Oxford University Press}
+}
+
+@article{laporte1992traveling,
+  title={The traveling salesman problem: An overview of exact and approximate algorithms},
+  author={Laporte, Gilbert},
+  journal={European Journal of Operational Research},
+  volume={59},
+  number={2},
+  pages={231--247},
+  year={1992},
+  publisher={Elsevier}
+}
+
+@article{article1,
+author = {Alzyadat, Tariq and Yamin, Mohammad and Chetty, Girija},
+year = {2019},
+month = {11},
+pages = {},
+title = {Genetic algorithms for the travelling salesman problem: a crossover comparison},
+volume = {12},
+journal = {International Journal of Information Technology},
+doi = {10.1007/s41870-019-00377-9}
+}
+
+@article{alzyadat2020genetic,
+  title={Genetic algorithms for the travelling salesman problem: a crossover comparison},
+  author={Alzyadat, Tariq and Yamin, Mohammad and Chetty, Girija},
+  journal={International Journal of Information Technology},
+  volume={12},
+  pages={209--213},
+  year={2020},
+  publisher={Springer}
+}

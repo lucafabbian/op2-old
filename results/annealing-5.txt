@@ -1,0 +1,3 @@
+Running annealing ./data/eil101.tsp, time=1695311720
+Solution cost: 693
+Solution plot: gnuplot ./plot/gnu/command872D416E-B3CA9ED7-17104011-8098-326C

@@ -1,0 +1,3 @@
+Running annealing ./data/pr299.tsp, time=1695313520
+Solution cost: 52410
+Solution plot: gnuplot ./plot/gnu/command9DFF9FE6-8ABCE00E-2343459E-A7A3-CB83

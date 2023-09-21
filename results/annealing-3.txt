@@ -1,0 +1,3 @@
+Running annealing ./data/att532.tsp, time=1695310520
+Solution cost: 93939
+Solution plot: gnuplot ./plot/gnu/commandB717636C-80FFA4F1-36E4A67-90DB-8B105

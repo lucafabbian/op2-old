@@ -1,6 +1,7 @@
 /bin
 plot/*.dat
 /report
+gnu
 
 plot.png
 result.png
