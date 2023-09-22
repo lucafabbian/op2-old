@@ -1,0 +1,3 @@
+Running tabulinear ./data/pr1002.tsp, time=1695333170
+Solution cost: 281852
+Solution plot: gnuplot ./plot/gnu/commandF443BFA3-1C98CDC8-DEB94E08-AAFE-761C

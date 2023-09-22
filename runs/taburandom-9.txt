@@ -1,0 +1,5 @@
+Running taburandom ./data/pr439.tsp, time=1695344576
+TIMECOST:1695344589 112522
+TIMECOST:1695344690 111733
+Solution cost: 111733
+Solution plot: gnuplot ./plot/gnu/command273FDFDB-46C1E6F4-D57D4FE5-A47C-D412

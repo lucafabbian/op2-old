@@ -1,0 +1,4 @@
+Running taburandom ./data/kroA200.tsp, time=1695343376
+TIMECOST:1695343435 29895
+Solution cost: 29895
+Solution plot: gnuplot ./plot/gnu/command8F9B199E-7316D277-4C624045-9743-7D24

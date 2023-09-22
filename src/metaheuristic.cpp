@@ -105,14 +105,13 @@ typedef void (*TabuCallback)(int &tabuTenure, const int iteration, const TSPSolu
 void stepTabu(int &tabuTenure, const int iteration, const TSPSolution *sol, const TSPSolution *bestSol){
   const int changeEvery = 100;
   const int max = sol->tsp->dim * 0.1;
-  const int min = sol->tsp->dim * 0.02;
-  if(iteration% changeEvery) tabuTenure = max;
-  if(iteration% (changeEvery * 2)) tabuTenure = min;
+  const int min = 0;
+  tabuTenure = (iteration% (changeEvery)) == (iteration% (changeEvery * 2)) ? max : min;
 }
 
 void linearTabu(int &tabuTenure, const int iteration, const TSPSolution *sol, const TSPSolution *bestSol){
   const int max = sol->tsp->dim * 0.1;
-  const int min = sol->tsp->dim * 0.02;
+  const int min = 0;
 
   const int diff = max - min;
   const int remain = iteration % (diff * 2);
@@ -124,7 +123,7 @@ void linearTabu(int &tabuTenure, const int iteration, const TSPSolution *sol, co
 void randomTabu(int &tabuTenure, const int iteration, const TSPSolution *sol, const TSPSolution *bestSol){
   const int changeEvery = 100;
   const int max = sol->tsp->dim * 0.1;
-  const int min = sol->tsp->dim * 0.02;
+  const int min = 0;
   if(iteration% changeEvery) tabuTenure = rand() % (max - min + 1) + min;
 }
 
@@ -154,7 +153,7 @@ void tabu(TSPSolution *firstSol, time_t timeLimit, TabuCallback tabuCallback = l
           int cost1 = tsp.cost(sol.sequence[i], sol.sequence[i+1]) + tsp.cost(sol.sequence[j], sol.sequence[(j+1) % tsp.dim]);
           int cost2 = tsp.cost(sol.sequence[i], sol.sequence[j]) + tsp.cost(sol.sequence[i+1], sol.sequence[(j+1) % tsp.dim]);
 
-          if(cost1 > cost2 && std::max({
+          if((cost1 > cost2) && std::max({
             tabuList[sol.sequence[i]],
             tabuList[sol.sequence[j]],
             tabuList[sol.sequence[i+1]],
@@ -167,13 +166,16 @@ void tabu(TSPSolution *firstSol, time_t timeLimit, TabuCallback tabuCallback = l
         }
       }
     }
+
+    //printf("outimproving %d %d\n", sol.cost, tabuTenure);
+
     // update incumbent
     if(sol.cost < firstSol->cost){
       timecost(sol.cost);
       for(int i = 0; i < tsp.dim; i++) firstSol->sequence[i] = sol.sequence[i];
       firstSol->cost = sol.cost;
     }
-    if(time(NULL) < timeLimit) break;
+    if(time(NULL) > timeLimit) break;
 
 
     int i, j;
@@ -188,7 +190,6 @@ void tabu(TSPSolution *firstSol, time_t timeLimit, TabuCallback tabuCallback = l
     twoOptSwap(&sol, i, j);
 
     tabuList[sol.sequence[i]] = iteration;
-    tabuList[sol.sequence[j]] = iteration;
     iteration++;
   }
 

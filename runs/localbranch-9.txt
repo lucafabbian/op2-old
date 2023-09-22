@@ -1,0 +1,4 @@
+Running localbranch ./data/pr439.tsp, time=1695276038
+Solution cost: 109300
+Solution plot: gnuplot ./plot/gnu/command390CBC50-7D9F-44EF-AF04-127CB1BCA8BA
+

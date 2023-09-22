@@ -1,0 +1,4 @@
+Running localbranch ./data/kroA200.tsp, time=1695274838
+Solution cost: 29343
+Solution plot: gnuplot ./plot/gnu/command6E1106F1-B0C0-43A6-A5B1-B33EC40A785A
+

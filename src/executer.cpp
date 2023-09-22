@@ -200,7 +200,7 @@ Result solveMultiThreadEndless(void (*solvFunc)(TSPSolution*, const time_t, cons
 
 
 
-void printResult(const Result &result){
+void printResult(const Result &result, const bool plot = true){
   printf("Seconds: %d\n", result.time);
   printf("Param1 = %d, ", result.param1);
   if(result.param2 != -1) ("Param2 = %d, ", result.param2);
@@ -209,7 +209,7 @@ void printResult(const Result &result){
 
   printf(" cost = %d\n", result.solution->cost);
 
-  result.solution->plot();
+  if(plot) result.solution->plot();
 }
 
 #endif
